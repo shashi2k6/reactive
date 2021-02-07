@@ -26,14 +26,14 @@ public class EmployeeResource {
     }
 
     @GetMapping("/{id}")
-    public Mono<Employee> getById(@PathVariable final String empId) {
-        return employeeRepository.findById(empId);
+    public Mono<Employee> getById(@PathVariable final String id) {
+        return employeeRepository.findById(id);
     }
 
 
     @GetMapping("/{id}/events")
-    public Flux<EmployeeEvent> getEvents(@PathVariable final String empId) {
-        return employeeRepository.findById(empId)
+    public Flux<EmployeeEvent> getEvents(@PathVariable final String id) {
+        return employeeRepository.findById(id)
                 .flatMapMany(employee -> {
                     Flux<Long> interval = Flux.interval(Duration.ofSeconds(5));
                     Flux<EmployeeEvent> employeeEventFlux =

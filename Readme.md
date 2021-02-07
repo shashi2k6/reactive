@@ -10,5 +10,8 @@
   - `db.info.insert({name:'shashi',product:'iphone13'})`
 - `db.info.find().forEach(printjson);`
 
-- `db.employee.find().forEach(printjson); - here emmployee is the collection name`
+- `db.employee.find().forEach(printjson); - here employee is the collection name`
 
+
+http://localhost:8080/rest/employee/all
+http://localhost:8080/rest/employee/e5bd6603-18bb-47a2-89ef-e2eb5be65289
