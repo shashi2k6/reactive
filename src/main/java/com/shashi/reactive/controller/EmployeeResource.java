@@ -2,6 +2,7 @@ package com.shashi.reactive.controller;
 
 import com.shashi.reactive.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class EmployeeResource {
     }
 
 
-    @GetMapping("/{id}/events")
+    @GetMapping(value="/{id}/events", produces= MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<EmployeeEvent> getEvents(@PathVariable final String id) {
         return employeeRepository.findById(id)
                 .flatMapMany(employee -> {
